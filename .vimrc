@@ -16,6 +16,16 @@ inoremap <c-u> <esc>gewveUi
 inoremap <c-l> <esc>gewveui
 nnoremap <c-u> gewveU
 nnoremap <c-l> gewveu
+
+" for, if, function
+iabbrev for+ for() {}<esc>i<cr><esc>O<esc>kl
+iabbrev while+ while() {}<esc>i<cr><esc>O<esc>kl
+iabbrev if+ if() {}<esc>i<cr><esc>O<esc>kl
+iabbrev else+ else {}<esc>i<cr><esc>O
+iabbrev function+ function() {}<esc>i<cr><esc>O<esc>kl
+iabbrev fun+ function() {}<esc>i<cr><esc>O<esc>kl
+iabbrev ()+ () => {}<esc>i<cr><esc>O<esc>kl
+
 iabbrev mdoc @moduledoc"""<cr><cr>"""<esc>ki
 iabbrev fdoc @doc"""<cr><cr>"""<esc>ki
 iabbrev node+ require('')<esc>hi
@@ -44,7 +54,7 @@ iabbrev tbody+ <tbody><esc>o</tbody><esc>O
 iabbrev <!+ <!--  --><esc>bbi
 iabbrev style+ <style></style><esc>bbi
 iabbrev link+ <link></link><esc>bbi
-iabbrev script+ <script></script><esc>bbi
+iabbrev script+ <script src=""></script><esc>bbi
 iabbrev span+ <span></span><esc>bbi
 iabbrev div+ <div></div><esc>bbi
 iabbrev p+ <p></p><esc>bbi
