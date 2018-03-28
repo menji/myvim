@@ -18,7 +18,7 @@ nnoremap <c-u> gewveU
 nnoremap <c-l> gewveu
 
 " for, if, function
-iabbrev for+ for() {}<esc>i<cr><esc>O<esc>kl
+iabbrev for+ for(let i = 0; i < ; i++) {}<esc>i<cr><esc>O<esc>kl
 iabbrev while+ while() {}<esc>i<cr><esc>O<esc>kl
 iabbrev if+ if() {}<esc>i<cr><esc>O<esc>kl
 iabbrev else+ else {}<esc>i<cr><esc>O
