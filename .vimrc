@@ -1,4 +1,4 @@
-syntax off
+syntax off 
 set tabstop=4
 set shiftwidth=2
 set autoindent
@@ -6,7 +6,17 @@ set expandtab
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set number
 set hls is
-let mapleader="="
+
+" trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
+" for color
+colorscheme molokai  
+set t_Co=256
+set background=dark
+
+
+let mapleader=","
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 noremap - ddp
@@ -21,6 +31,7 @@ nnoremap <c-l> gewveu
 iabbrev for+ for(let i = 0; i < ; i++) {}<esc>i<cr><esc>O<esc>kl
 iabbrev while+ while() {}<esc>i<cr><esc>O<esc>kl
 iabbrev if+ if() {}<esc>i<cr><esc>O<esc>kl
+iabbrev switch+ switch() {}<esc>i<cr><esc>Ocase :<cr>default :<esc>3k
 iabbrev else+ else {}<esc>i<cr><esc>O
 iabbrev function+ function() {}<esc>i<cr><esc>O<esc>kl
 iabbrev fun+ function() {}<esc>i<cr><esc>O<esc>kl
@@ -46,11 +57,16 @@ iabbrev dl+ <dl><esc>o</dl><esc>O
 iabbrev li+ <li></li><esc>bbi
 iabbrev dt+ <dt></dt><esc>bbi
 iabbrev dd+ <dd></dd><esc>bbi
+iabbrev br+ <br>
+iabbrev x+ </><esc>hi
+iabbrev xx+ <></><esc>hhhh
+iabbrev {+ {{}}<esc>hi
 
 iabbrev table+ <table><esc>o</table><esc>O
 iabbrev canvas+ <canvas><esc>o</canvas><esc>O
 iabbrev form+ <form action="" method="post"><esc>o</form><esc>O
 iabbrev tbody+ <tbody><esc>o</tbody><esc>O
+iabbrev select+ <select><esc>o</select><esc>O
 iabbrev <!+ <!--  --><esc>bbi
 iabbrev style+ <style></style><esc>bbi
 iabbrev link+ <link></link><esc>bbi
@@ -66,11 +82,24 @@ iabbrev th+ <th></th><esc>bbi
 iabbrev title+ <title></title><esc>bbi
 iabbrev td+ <td></td><esc>bbi
 iabbrev a+ <a></a><esc>bbi
-iabbrev input+ <input/><esc>bi
-iabbrev img+ <img ><esc>i
-iabbrev incheck+ <input type="checkbox" /><esc>bi
-iabbrev intext+ <input type="text" /><esc>bi
-iabbrev insubmit+ <input type="submit" /><esc>bi
+iabbrev button+ <button></button><esc>bbi
+iabbrev input+ <input /><esc>i
+iabbrev label+ <label></label><esc>bbi
+iabbrev img+ <img /><esc>i
+iabbrev incheck+ <input type="checkbox" ><esc>i
+iabbrev intext+ <input type="text" /><esc>i
+iabbrev insubmit+ <input type="submit" /><esc>i
+
+function! Hello()
+  return "hello"
+endfunction
+
+iabbrev xyz++ <C-R>=Hello()<CR>
+
+
+iabbrev log+ const log = function() {<CR>console.log.apply(console, arguments);<CR>}
+
+
 :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 :nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 :nnoremap <leader>o i<cr><esc>O
@@ -100,6 +129,7 @@ let g:tlTokenList = ["FIXME", "TODO", "todo", "HACK", "NOTE", "WARN", "MODIFY"]
 " nnoremap ,td :TaskList<CR>
 
 filetype plugin indent on
+filetype plugin on
 "autocmd
 :autocmd FileType javascript nnoremap <leader>c I// <esc>
 :autocmd FileType python : nnoremap <leader>c I# <esc>
