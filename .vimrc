@@ -1,8 +1,8 @@
-syntax off 
+syntax off
 set tabstop=4
 set shiftwidth=2
 set autoindent
-set expandtab                
+set expandtab
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set number
 set hls is
@@ -11,7 +11,7 @@ set hls is
 autocmd BufWritePre * %s/\s\+$//e
 
 " for color
-colorscheme molokai  
+colorscheme molokai
 set t_Co=256
 set background=dark
 
@@ -81,14 +81,18 @@ iabbrev tr+ <tr></tr><esc>bbi
 iabbrev th+ <th></th><esc>bbi
 iabbrev title+ <title></title><esc>bbi
 iabbrev td+ <td></td><esc>bbi
-iabbrev a+ <a></a><esc>bbi
+iabbrev a+ <a href=""></a><esc>F"
 iabbrev button+ <button></button><esc>bbi
 iabbrev input+ <input /><esc>i
 iabbrev label+ <label></label><esc>bbi
-iabbrev img+ <img /><esc>i
+iabbrev img+ <img src="" /><esc>F"
 iabbrev incheck+ <input type="checkbox" ><esc>i
 iabbrev intext+ <input type="text" /><esc>i
 iabbrev insubmit+ <input type="submit" /><esc>i
+
+iabbrev ngfor *ngFor="let of"<esc>Fo
+iabbrev ngif *ngIf=""<esc>
+iabbrev ngmodel [(ngModel)]=""<esc>
 
 function! Hello()
   return "hello"
@@ -97,7 +101,7 @@ endfunction
 iabbrev xyz++ <C-R>=Hello()<CR>
 
 
-iabbrev log+ const log = function() {<CR>console.log.apply(console, arguments);<CR>}
+iabbrev log+ const log = function(...arg) {<CR>console.log.apply(console, arguments);<CR>}
 
 
 :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
@@ -117,9 +121,9 @@ iabbrev log+ const log = function() {<CR>console.log.apply(console, arguments);<
 " for vundle
 filetype off
 set nocompatible
-set rtp+=~/.vim/bundle/Vundle.vim 
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim' 
+Plugin 'gmarik/Vundle.vim'
 Plugin 'taglist.vim'
 Plugin 'TaskList.vim'
 call vundle#end()
