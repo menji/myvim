@@ -6,14 +6,24 @@ set expandtab
 set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 set number
 set hls is
+set pastetoggle=<F2>
+
+au BufRead,BufNewFile *.ts set filetype=javascript
+
+" keyword match
+set nocompatible
+filetype plugin on
+runtime macros/matchit.vim
+
 
 " trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 
 " for color
-colorscheme molokai
-set t_Co=256
-set background=dark
+"colorscheme molokai
+" kset t_Co=256
+" set background=dark
+highlight Pmenu ctermbg=lightgreen guibg=gray
 
 
 let mapleader=","
@@ -83,7 +93,8 @@ iabbrev title+ <title></title><esc>bbi
 iabbrev td+ <td></td><esc>bbi
 iabbrev a+ <a href=""></a><esc>F"
 iabbrev button+ <button></button><esc>bbi
-iabbrev input+ <input /><esc>i
+iabbrev pre+ <pre></pre><esc>bbi
+iabbrev input+ <input ><esc>i
 iabbrev label+ <label></label><esc>bbi
 iabbrev img+ <img src="" /><esc>F"
 iabbrev incheck+ <input type="checkbox" ><esc>i
@@ -102,6 +113,9 @@ iabbrev xyz++ <C-R>=Hello()<CR>
 
 
 iabbrev log+ const log = function(...arg) {<CR>console.log.apply(console, arguments);<CR>}
+
+" css
+iabbrev out+ outline: 1px dashed red;
 
 
 :nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
